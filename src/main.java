@@ -4,14 +4,13 @@ import javafx.collections.transformation.SortedList;
 public class main {
     public static void main(String[] args) {
 
-        //String plainText = "helloworld";
+        String plainText = "helloworld";
         //String plainText = "publicvoidmain";
-        String plainText = "thisisnotamiracle";
-        String encryptionKeyPattern = "24153";
+        //String plainText = "thisisnotamiracle";
+        String encryptionKey = "24153";
 
 
         Cipher cipher = new Cipher();
-        String encryptionKey = Cipher.generateKey(plainText, encryptionKeyPattern);
         String encryptedMessage = cipher.encrypt(encryptionKey, plainText);
         String decryptionKey = Cipher.generateDecryptionKey(encryptionKey);
         String decryptedMessage = cipher.decrypt(decryptionKey, encryptedMessage);
