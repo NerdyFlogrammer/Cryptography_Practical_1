@@ -10,7 +10,7 @@ def usage():
 
 
 def encrypt(plain_text, encryption_key):
-    padded_length = len(plain_text) + (len(plain_text) % len(encryption_key))
+    padded_length = len(plain_text) + len(key) * (len(plain_text) % len(encryption_key) > 0) - (len(plain_text) % len(encryption_key))
     padded_text = plain_text.ljust(padded_length, 'x')
     cipher_text = [[padded_text[int(i) + j*len(encryption_key) - 1]
                     for i in encryption_key] for j in range(0, int(len(padded_text)/len(encryption_key)))]
